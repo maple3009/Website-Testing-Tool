@@ -42,6 +42,7 @@ class TestingTool():
 
 
     def input_info(self):
+        sleep(10)
         # fill in necessary information for the contact form
         # name_input = self.driver.find_element_by_id('comp-k6v5579cinput')
         name_input = self.driver.find_element_by_xpath('//*[@id="comp-k6v5579cinput"]')
@@ -65,17 +66,18 @@ class TestingTool():
         text_input.send_keys(message)
 
     def submit_info(self):
+        sleep(20)
         submit_button = self.driver.find_element_by_id('comp-k6v5hpb7link')
         ## self.driver.execute_script("arguments[0].click();", submit_button)
         submit_button.click()
+        sleep(10)
+        self.driver.quit()
 
 
 if __name__ == "__main__":
     # create instance of TestingTool()
     t1 = TestingTool()
-    sleep(10)
     t1.input_info()
-    sleep(20)
     t1.submit_info()
-    sleep(10)
-    t1.driver.quit()
+    
+    
